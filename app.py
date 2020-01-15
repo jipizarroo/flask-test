@@ -82,10 +82,10 @@ def contacts(id = None):
         return jsonify({"msg": "Contact Deleted"}), 200  
 
 
-@app.route( '/api/todos', methods=['GET', 'POST'])
-@app.route('/api/todos/<int:id>', methods=['GET', 'PUT','DELETE'])
+@app.route( '/api/user/<username>/todos', methods=['GET', 'POST'])
+@app.route('/api/user/<username>/todos/<int:id>', methods=['GET', 'PUT','DELETE'])
 
-def todos(id = None):
+def todos(username, id = None):
     if request.method == 'GET':
         if id is not None:
             todo = Todo.query.get(id)

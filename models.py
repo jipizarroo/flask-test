@@ -24,6 +24,7 @@ class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     label = db.Column(db.String(50), nullable=False)
     done = db.Column(db.Boolean, default=False)
+    user = db.Column(db.String(50), default=False)
 
     def __repr__(self):
         return '<Todo %r>' %self.label
@@ -32,7 +33,8 @@ class Todo(db.Model):
         return {
             "id": self.id,
             "label": self.label,
-            "done": self.done
+            "done": self.done,
+            "user": self.user
         }
 
         
